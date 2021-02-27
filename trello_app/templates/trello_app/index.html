@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta character='utf-8'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> All Tasks And Task Lists</title>
+        <meta name="description" content="">
+        <meta name="vewport" content="width=device.width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1> All Lists </h1>
+        <ul>
+            {% for task_list in task_lists %}
+
+                <li> {{ task_list.name }} </li>
+
+            {% endfor %}
+        </ul>
+
+        <h1> All Tasks </h1>
+        <ul>
+            {% for task in tasks %}
+
+                <li> {{ task.content }} </li>
+
+            {% endfor %}
+        </ul>
+    </body>
+</html>
