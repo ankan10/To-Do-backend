@@ -1,14 +1,20 @@
 from django import forms
-from .models import Task
+from .models import Task, TaskList
 
-class TaskListForm(forms.Form):
-    name= forms.CharField(max_length=50)
+
+class TaskListForm(forms.ModelForm):
+    class Meta:
+        model = TaskList
+        fields = '__all__'
+        widgets = {
+            'created_at': forms.DateTimeInput(attrs={'type': 'datetime-local'})
+        }
 
 
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields='__all__'
+        fields = '__all__'
         widgets = {
             'created_at': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
             'deadline': forms.DateTimeInput(attrs={'type': 'datetime-local'})
